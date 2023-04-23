@@ -215,4 +215,7 @@ models:
         description: Revenue (Ціна одиниці товару * Кількість товару)  
         tests:
           - not_null
+
+      - name: productid
+        description: Код товару
           
