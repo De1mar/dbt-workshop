@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: production
+    database: adventureworks
+    schema: production
+    tables: 
+      - name: product
+      - name: productcategory
+      - name: productsubcategory
+ 
+    
+      
+      
+      
+

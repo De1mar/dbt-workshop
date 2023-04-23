@@ -1,0 +1,218 @@
+version: 2
+
+models:
+  - name: dim_address
+    description: Довідник адрес
+    columns:
+      - name: address_key
+        description: Сурогатний (surrogate) ключ адреси
+        tests: 
+          - not_null
+          - unique
+      
+      - name: addressid
+        description: Природний (nature) ключ 
+        tests:
+          - not_null
+          - unique
+
+      - name: city_name
+        description: Назва міста 
+
+      - name: state_name
+        description: Назва штату
+
+      - name: country_name
+        description: Назва країни
+
+
+  - name: dim_credit_card
+    columns:
+      - name: creditcard_key
+        description: Сурогатний (surrogate) ключ creditcard_id
+        tests:
+          - not_null   
+      - name: creditcardid
+        description: Природний (nature) ключ creditcard
+        tests:
+          - unique 
+          - not_null 
+      - name: cardtype
+        description: Назва картки
+        tests:
+          - not_null
+
+
+  - name: dim_customer
+    columns:
+      - name: customer_key
+        description: Сурогатний (surrogate) ключ  customer
+        tests:
+          - unique
+          - not_null
+
+      - name: customerid
+        description: Природний (nature) ключ customer
+        tests:
+          - not_null
+          - unique
+          
+      - name: fullname
+        description: Ім'я клієнта. Приймається як customer_fullname, якщо ім’я особи не є нульовим.
+        tests:
+          - not_null
+
+      - name: businessentityid
+      
+      - name: storebusinessentityid
+
+      - name: storename
+        description: The store name.
+
+  - name: dim_date
+    columns:
+      - name: date_key
+        description: The surrogate key of the date table 
+        tests:
+          - unique
+          - not_null
+
+      - name: date_day
+        description: The natural key of the date table 
+        tests:
+          - not_null
+          - unique
+
+
+  - name: dim_order_status
+    columns:
+      - name: order_status_key
+        description: The surrogate key of the order status 
+        tests:
+          - unique
+          - not_null
+
+      - name: order_status
+        description: The natural key of the order status table 
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_product
+    columns:
+      - name: product_key 
+        description: The surrogate key of the product
+        tests:
+          - not_null
+          - unique
+      - name: productid 
+        description: The natural key of the product
+        tests:
+          - not_null
+          - unique
+      - name: product_name 
+        description: The product name
+        tests:
+          - not_null 
+
+
+
+
+  - name: fct_sales
+    columns:
+
+      - name: sales_key
+        description: The surrogate key of the fct sales
+        tests:
+          - not_null
+          - unique
+
+      - name: salesorderid
+        description: The natural key of the saleorderheader
+        tests:
+          - not_null
+
+      - name: salesorderdetailid
+        description: The natural key of the salesorderdetail
+        tests:
+          - not_null
+      
+      - name: product_key
+        description: The foreign key of the product
+        tests:
+          - not_null
+
+      - name: customer_key
+        description: The foreign key of the customer
+        tests:
+          - not_null 
+      
+      - name: ship_address_key
+        description: The foreign key of the shipping address
+        tests:
+          - not_null
+      
+      - name: creditcard_key
+        description: The foreign key of the creditcard. If no creditcard exists, it was assumed that purchase was made in cash.
+        test:
+          - not_null
+
+      - name: order_date_key
+        description: The foreign key of the order date
+        tests:
+          - not_null 
+      
+      - name: order_status_key
+        description: The foreign key of the order status 
+        tests:
+          - not_null  
+
+      - name: unitprice
+        description: The unit price of the product 
+        tests:
+          - not_null
+
+      - name: orderqty
+        description: The quantity of the product 
+        tests:
+          - not_null
+
+      - name: revenue
+        description: The revenue obtained by multiplying unitprice and orderqty 
+
+
+
+  - name: obt_sales
+    columns:
+
+      - name: sales_key
+        description: Сурогатний (surrogate) ключ fct sales
+        tests:
+          - not_null
+          - unique
+
+      - name: salesorderid
+        description: Природний (nature) ключ saleorderheader
+        tests:
+          - not_null
+
+      - name: salesorderdetailid
+        description: Природний (nature) ключ salesorderdetail
+        tests:
+          - not_null
+
+      - name: unitprice
+        description: Ціна одиниці товару
+        tests:
+          - not_null
+
+      - name: orderqty
+        description: Кількість товару
+        tests:
+          - not_null
+
+      - name: revenue
+        description: Revenue (Ціна одиниці товару * Кількість товару)  
+        tests:
+          - not_null
+          

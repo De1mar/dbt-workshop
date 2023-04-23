@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: sales
+    database: adventureworks
+    schema: sales
+    tables: 
+      - name: salesreason
+      - name: salesorderheader
+      - name: salesorderdetail
+      - name: customer
+      - name: creditcard
+      - name: store
+      - name: salesorderheadersalesreason
+
+

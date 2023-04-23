@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: person
+    database: adventureworks
+    schema: person
+    tables: 
+      - name: address
+      - name: countryregion
+      - name: person
+      - name: stateprovince
+    
+      
+      
+      
+

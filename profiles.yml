@@ -1,0 +1,26 @@
+dbt_workshop:
+  
+  outputs:
+
+    dev:
+      type: postgres
+      threads: 4
+      host: localhost
+      port: 5432
+      user: postgres_user
+      pass: postgres_admin
+      dbname: adventureworks
+      schema: dbt_schema
+
+
+    # prod:
+    #   type: postgres
+    #   threads: 1
+    #   host: localhost
+    #   port: 5432
+    #   user: postgres_user
+    #   pass: postgres_admin
+    #   dbname: adventureworks
+    #   schema: dbt_schema
+
+  target: dev
