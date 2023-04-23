@@ -9,7 +9,7 @@ Try running the following commands:
 
 [AdventureWorksERD]([https://txtrainingstore.blob.core.windows.net/db-backup-aw2019/AdventureWorksERD](https://i0.wp.com/improveandrepeat.com/wp-content/uploads/2018/12/AdvWorksOLTPSchemaVisio.png?ssl=1))
 
-https://i0.wp.com/improveandrepeat.com/wp-content/uploads/2018/12/AdvWorksOLTPSchemaVisio.png?ssl=1
+
 
 ### Resources:
 - Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
