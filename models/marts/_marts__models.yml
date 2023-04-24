@@ -222,5 +222,5 @@ models:
           - not_null
 
       - name: productid
-        description: Product Iddddd
+        description: Product ID
           
