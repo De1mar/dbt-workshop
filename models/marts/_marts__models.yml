@@ -222,5 +222,6 @@ models:
           - not_null
 
       - name: productid
-        description: SKU
+        description: ProdcutIDD
+      
           
